@@ -16,3 +16,5 @@
     └── README.md               # README-файл проекта
 
 ## Видео демонстрация рабочей версии
+
+https://user-images.githubusercontent.com/47455676/188583958-d1a06339-97b1-49ca-86a1-80bd526ce3fd.mp4
