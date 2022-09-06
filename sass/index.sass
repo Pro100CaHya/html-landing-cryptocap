@@ -1,0 +1,933 @@
+@import "variables.sass"
+@import "mixins.sass"
+
+*
+    box-sizing: border-box
+
+    &::-webkit-scrollbar
+        width: 10px
+        height: 10px
+
+    &::-webkit-scrollbar-track
+        background: $grey
+
+    &::-webkit-scrollbar-thumb
+        background: $emerald
+        border-radius: 10px
+
+html, body
+    margin: 0
+
+html
+    font-family: "Raleway", sans-serif
+    font-size: 14px
+    height: 100%
+
+body
+    min-height: 100%
+    display: flex
+    flex-direction: column
+
+.content
+    padding-left: 90px
+    padding-right: 90px
+
+    &_padding-y
+
+        &_s
+            padding-top: 30px
+            padding-bottom: 30px
+
+        &_m
+            padding-top: 60px
+            padding-bottom: 60px
+
+.flex
+    display: flex
+
+    &_justify
+
+        &_between
+            justify-content: space-between
+
+    &_align
+
+        &_center
+            align-items: center
+
+    &_direction
+
+        &_column
+            flex-direction: column
+
+.nav
+
+    &_flex
+        display: flex
+        justify-content: space-between
+
+    &__list
+        list-style: none
+        padding-left: 0
+        margin-top: 0
+        margin-bottom: 0
+        flex: 1 1 auto
+
+    &__link
+        text-decoration: none
+        color: $green-l
+        font-weight: 600
+        transition: $tr-color
+        font-size: 1.25rem
+
+        &:hover
+            color: $emerald
+
+    &__item
+
+        &_type
+
+            &_header-nav
+                margin-left: 15px
+
+            &_footer-link
+                margin-right: 15px
+
+.logo
+    font-size: 2.5rem
+    font-weight: 700
+    margin-top: 0
+    margin-bottom: 0
+
+    &_highlighted
+        color: $emerald
+
+.select
+    padding: 10px 15px
+    border: none
+    border-radius: 0
+    cursor: pointer
+    font-size: 1.25rem
+
+.input
+    padding: 10px 15px
+    border: none
+    border-radius: 10px
+    cursor: pointer
+    font-size: 1.25rem
+
+    &:focus, &:active
+        outline: none
+
+    &:placeholder
+        color: $grey-trans
+
+.button
+    border: none
+    border-radius: 10px
+    font-weight: 500
+    cursor: pointer
+    transition: $tr-box-shadow
+
+    &_style
+
+        &_emerald
+            background: $emerald
+            color: white
+
+            &:hover
+                box-shadow: $bs-emerald
+
+        &_white
+            background: white
+            border: 2px solid $grey-trans
+            color: $grey
+
+            &:hover
+                box-shadow: $bs-black
+
+    &:active
+        position: relative
+        top: 5px
+        box-shadow: none
+
+    &_size
+
+        &_s
+            padding: 15px 25px
+            font-size: 1.25rem
+
+        &_m
+            padding: 20px 40px
+            font-size: 1.4rem
+
+.wrap
+    max-width: 1024px
+    margin: 0 auto
+
+.title
+    +headline-1
+    margin-bottom: 0
+    margin-top: 0
+
+.text
+    +subtitle-1-regular
+
+.header
+    background: white
+    position: fixed
+    width: 100%
+    transition: $tr-box-shadow
+    z-index: 2
+
+    &:hover
+        box-shadow: $bs-emerald
+
+    &__column
+        margin-left: 15px
+
+    &__language
+        background: white
+        border-radius: 10px
+        padding: 5px
+        cursor: pointer
+        transition: $tr-box-shadow
+
+        &:hover
+            box-shadow: $bs-black
+
+    &__select
+        margin-left: 10px
+
+    &__button
+        margin-left: 10px
+
+    &__svg-lang
+        width: 24px
+        height: 24px
+
+    &__menu-button
+        display: none
+        width: 40px
+        height: 30px
+        position: relative
+        cursor: pointer
+
+        span
+            position: absolute
+            display: inline-block
+            height: 6px
+            border-radius: 3px
+            background: $emerald
+
+            &:first-child
+                top: 0
+                width: 50%
+
+            &:nth-child(2)
+                top: 12px
+                width: 100%
+
+            &:last-child
+                top: 24px
+                width: 75%
+
+.main
+    flex: 1 1 auto
+
+.intro
+    background: radial-gradient(50% 50% at 50% 50%, #f6dcff64 0%, #fdf6ff78 100%)
+    text-align: center
+
+    &__title
+        margin-top: 180px
+
+    &__text
+        margin-top: 18px
+        line-height: 150%
+
+    &__button
+        margin-top: 40px
+
+.trand
+    background: linear-gradient(180deg, #fdf6ff78 0%, #f6dcff64 100%)
+
+    &__title
+        font-size: 2rem
+        font-weight: 700
+        color: $green-xl
+        margin: 0
+
+    &__list
+        margin-top: 24px
+        overflow-x: hidden
+
+    &__row
+        width: 300%
+        animation: ticker 30s linear infinite
+
+.card
+    background: white
+    padding: 20px
+    border-radius: 15px
+    border: 2px solid $grey-trans
+    margin: 0 15px
+
+    &__info
+        border-bottom: 2px solid $grey-trans
+        padding-bottom: 15px
+
+    &__logo
+        width: 50px
+        height: 50px
+
+    &__abbr
+        text-decoration: none
+        margin-left: 15px
+        font-size: 1.25rem
+        color: black
+        font-weight: 600
+        text-transform: uppercase
+
+    &__name
+        margin-left: 15px
+        margin-right: 15px
+        font-size: 1rem
+        text-transform: uppercase
+        padding: 3px
+        border-radius: 5px
+        background: $grey-trans
+
+    &__button
+        cursor: pointer
+        margin-left: auto
+        width: 48px
+        height: 48px
+
+    &__indicators
+        padding-top: 15px
+
+    &__price
+        margin-top: 0
+        margin-bottom: 0
+        font-weight: 600
+        font-size: 1.5rem
+
+    &__change
+        margin-top: 10px
+        margin-bottom: 0
+        font-size: 1.1rem
+        color: $grey
+
+        &_negative
+            color: red
+
+    &__chart
+        width: 100px
+        height: 54px
+
+.features
+    background: linear-gradient(360deg, rgba(134, 233, 255, 0) 1.91%, rgba(134, 233, 255, 0.21) 36.28%, rgba(202, 245, 255, 0.23) 71.7%, rgba(255, 255, 255, 0) 100%)
+    text-align: center
+
+    &__title
+        margin: 0
+
+    &__text
+        margin-top: 20px
+        +subtitle-1-regular
+
+    &__list
+        margin-top: 50px
+
+    &__item
+        background: white
+        border: 2px solid $grey-trans
+        border-radius: 15px
+        margin: 15px
+        padding: 30px
+        text-align: left
+        flex: 1 1 45%
+        position: relative
+        bottom: 0
+        transition: $tr-box-shadow, $tr-bottom, $tr-border-color
+
+        &:hover
+            box-shadow: $bs-emerald
+            bottom: 5px
+            border-color: $emerald-dark
+
+    &__logo
+        width: 80px
+        height: 80px
+
+    &__name
+        margin-top: 25px
+        line-height: 150%
+        +headline-3
+
+    &__text
+        margin-top: 12px
+        +caption-1-regular
+        line-height: 150%
+        margin-bottom: 30px
+        flex: 1 1 auto
+
+    &__link
+        color: $emerald
+        text-decoration: none
+        font-size: 1.25rem
+        transition: $tr-color
+
+        &:hover
+            color: $emerald-dark
+
+        &::after
+            content: url("../img/arrow.svg")
+            display: inline-block
+            vertical-align: middle
+            padding-left: 5px
+
+.learn
+    background: radial-gradient(50% 50% at 50% 50%, #fbeeff 0%, #ffffff 100%)
+
+    &__row
+        border-radius: 15px
+        border: 2px solid $grey-trans
+        padding: 20px 60px
+
+    &__info
+        max-width: 568px
+        margin-right: 15px
+
+    &__title
+        margin-top: 0
+        margin-bottom: 0
+        +headline-2
+
+    &__text
+        margin-top: 12px
+        margin-bottom: 0
+        +subtitle-1-regular
+
+.market
+
+    &__title
+        +headline-1
+
+    &__subtitle
+        +subtitle-1-medium
+
+    &__buttons
+        overflow-x: auto
+        overflow-y: hidden
+        display: flex
+        margin-right: 15px
+
+        &::-webkit-scrollbar
+            width: 5px
+            height: 5px
+
+    &__button
+        margin-right: 10px
+        flex: 0 0 auto
+
+    &__search
+        background: white
+        border-radius: 10px
+        border: 2px solid $grey-trans
+        padding-left: 20px
+
+        &-icon
+            width: 24px
+            height: 24px
+
+    &__input
+        width: 80%
+
+    &__wrap
+        margin-top: 30px
+        overflow: auto
+
+.table
+    width: 100%
+
+    &__cell, &__head
+        vertical-align: middle
+        text-align: left
+        padding-left: 20px
+        padding-right: 20px
+
+    &__head
+        text-transform: uppercase
+        font-size: 1.1rem
+        color: $grey
+        padding-top: 20px
+        padding-bottom: 20px
+
+    &__cell
+        padding-top: 10px
+        padding-bottom: 10px
+        font-size: 1.2rem
+        font-weight: 500
+
+        &_color_red
+            color: red
+
+        &_second
+            min-width: 270px
+
+    &__row
+        outline: 2px solid $grey-trans
+
+        &_first
+            border-top-left-radius: 10px
+            border-top-right-radius: 10px
+
+    &__flex
+        display: flex
+        align-items: center
+        flex-wrap: nowrap
+
+    &__coin
+
+        &-name
+            margin-left: 20px
+            padding-right: 12px
+            border-right: 2px solid $grey-light
+
+        &-abbr
+            margin-left: 12px
+            text-decoration: none
+            text-transform: uppercase
+
+        &-logo
+            width: 44px
+            height: 44px
+
+        &-chart
+            width: 100px
+            height: 54px
+
+.get-started
+    background: radial-gradient(50% 50% at 50% 50%, #fbeeff 0%, #ffffff 100%)
+
+    &__info
+        max-width: 430px
+        margin-right: 30px
+
+    &__text
+        margin-top: 18px
+
+    &__button
+        margin-top: 40px
+        margin-bottom: 40px
+
+    &__item
+        padding: 20px
+        background: white
+        border: 2px solid $grey-trans
+        border-radius: 10px
+        max-width: 530px
+        width: 100%
+        margin-bottom: 15px
+        display: flex
+        position: relative
+        bottom: 0
+        transition: $tr-box-shadow, $tr-bottom, $tr-border-color
+
+        &:hover
+            box-shadow: $bs-emerald
+            bottom: 5px
+            border-color: $emerald-dark
+
+        &-info
+            display: flex
+            flex-direction: column
+
+        &-image
+            width: 80px
+            height: 80px
+            margin-right: 20px
+
+        &-name
+            +headline-3
+            margin-top: 0
+            margin-bottom: 0
+
+        &-text
+            +caption-1-regular
+            margin-top: 15px
+            margin-bottom: 0
+
+.blog
+    background: white
+
+    &__info
+        text-align: center
+        margin: 0 auto
+
+    &__text
+        margin-top: 10px
+        margin-bottom: 0
+
+    &__list
+        margin-top: 60px
+        display: flex
+        flex-wrap: wrap
+
+        article:nth-child(2) > div:first-child
+            background: url("../img/articles/bitcoin.webp") top left/100% 100% no-repeat
+
+        article:nth-child(3) > div:first-child
+            background: url("../img/articles/banking.webp") top left/100% 100% no-repeat
+
+        article:nth-child(4) > div:first-child
+            background: url("../img/articles/crypto-wallet.webp") top left/100% 100% no-repeat
+
+        article:nth-child(5) > div:first-child
+            background: url("../img/articles/dollars.webp") top left/100% 100% no-repeat
+
+        article:nth-child(6) > div:first-child
+            background: url("../img/articles/trading.webp") top left/100% 100% no-repeat
+
+        article:last-child > div:first-child
+            background: url("../img/articles/nft.webp") top left/100% 100% no-repeat
+
+    &__item
+        flex: 1 1 20%
+        margin: 15px
+        border-radius: 10px
+        border: 2px solid $grey-light
+        cursor: pointer
+        position: relative
+        bottom: 0
+        transition: $tr-box-shadow, $tr-bottom, $tr-border-color
+
+        &:hover
+            box-shadow: $bs-emerald
+            bottom: 5px
+            border-color: $emerald-dark
+
+        &-wrap
+            padding: 20px 10px
+
+        &_main
+            flex: 1 1 45%
+            background: url("../img/articles/cryptocurrency.webp") top left/100% 100% no-repeat
+            position: relative
+            padding: 20px
+
+        &-main-title
+            color: white
+            font-size: 2rem
+            font-weight: 700
+            margin-top: 20px
+            margin-bottom: 0
+
+        &-main-tag
+            padding: 5px 7px
+            font-size: 1.5rem
+            margin-top: 10px
+            margin-bottom: 0
+            text-transform: uppercase
+            color: #e0e0e0
+            background: #ffffff68
+            display: inline-block
+            border-radius: 5px
+
+        &-tag
+            display: inline-block
+            margin-bottom: 0
+            padding: 2px 5px
+            border-radius: 5px
+            text-transform: uppercase
+            font-size: 1.1rem
+            font-weight: 600
+
+            &_style
+
+                &_purple
+                    background: $purple-light
+                    color: $purple
+
+                &_emerald
+                    background: $emerald-trans
+                    color: $emerald-dark
+
+        &-title
+            display: inline-block
+            margin-top: 12px
+            margin-bottom: 0
+            +label-1-semibold
+
+        &-subtitle
+            display: inline-block
+            margin-top: 12px
+            margin-bottom: 0
+            +caption-2-regular
+
+    &__image
+        height: 200px
+        border-top-left-radius: 10px
+        border-top-right-radius: 10px
+
+.footer
+    background: white
+    border-top: 1px solid $grey-light
+
+    &__info
+        margin-right: 25px
+        flex: 1 1 auto
+
+    &__logo
+        margin-top: 15px
+
+    &__links
+        margin-top: 64px
+
+    &__copyright
+        margin-top: 32px
+        margin-bottom: 0
+        +caption-1-regular
+
+    &__nav
+        flex: 1 1 auto
+
+        &-column
+            margin-right: 25px
+
+        &-title
+            margin-top: 0
+            margin-bottom: 20px
+
+#checkbox-menu
+    display: none
+
+@keyframes ticker
+    0%
+        transform: translate3d(33%, 0, 0)
+
+    100%
+        transform: translate3d(-100%, 0, 0)
+
+@media screen and (max-width: 1024px)
+
+    .flex
+        flex-wrap: wrap
+
+        &_direction
+
+            &_column-w1024
+                flex-direction: column
+
+    .header
+
+        &__nav
+            order: 4
+            width: 100%
+            display: none
+
+        &__menu-button
+            display: inline-block
+
+    .nav
+
+        &_flex
+            flex-wrap: wrap
+
+        &__item
+
+            &_type
+
+                &_header-nav
+                    margin-left: 0
+                    margin-top: 15px
+
+    .trand
+
+        &__row
+            width: 500%
+
+    .learn
+
+        &__button
+            margin-top: 15px
+
+    .market
+
+        &__search
+            margin-top: 15px
+
+    .blog
+
+        &__item
+            flex: 1 1 45%
+
+            &_main
+                flex: 1 1 100%
+                min-height: 400px
+
+    .footer
+
+        &__nav-column
+            margin-top: 25px
+            min-height: 190px
+
+    #checkbox-menu
+
+        &:checked
+
+            & ~ .header__menu-button
+
+                span
+
+                    &:first-child
+                        transform: rotate(45deg)
+                        top: 4.5px
+                        left: 2px
+
+                    &:nth-child(2)
+                        transform: rotate(-45deg)
+
+                    &:last-child
+                        transform: rotate(45deg)
+                        top: 15px
+                        left: 8px
+
+            & ~ .header__nav
+                display: block
+
+    @keyframes ticker
+        0%
+            transform: translate3d(20%, 0, 0)
+
+        100%
+            transform: translate3d(-100%, 0, 0)
+
+@media screen and (max-width: 768px)
+
+    .header
+
+        &__column
+            width: 100%
+            order: 5
+            display: none
+            margin-top: 15px
+            margin-left: 0
+
+    .trand
+
+        &__row
+            width: 800%
+
+    .features
+
+        &__item
+            margin-left: 0
+            margin-right: 0
+            flex: 1 1 auto
+
+    #checkbox-menu
+
+        &:checked
+
+            & ~ .header__column
+                display: flex
+
+    @keyframes ticker
+        0%
+            transform: translate3d(12.5%, 0, 0)
+
+        100%
+            transform: translate3d(-100%, 0, 0)
+
+@media screen and (max-width: 568px)
+
+    html
+        font-size: 12px
+
+    .content
+        padding-left: 20px
+        padding-right: 20px
+
+    .features
+
+        &__item
+            padding: 20px
+
+    .learn
+
+        &__row
+            padding: 20px
+
+    .blog
+
+        &__list
+
+            article:nth-child(2) > div:first-child
+                background: url("../img/articles/bitcoin.webp") top left/100% auto no-repeat
+
+            article:nth-child(3) > div:first-child
+                background: url("../img/articles/banking.webp") top left/100% auto no-repeat
+
+            article:nth-child(4) > div:first-child
+                background: url("../img/articles/crypto-wallet.webp") top left/100% auto no-repeat
+
+            article:nth-child(5) > div:first-child
+                background: url("../img/articles/dollars.webp") top left/100% auto no-repeat
+
+            article:nth-child(6) > div:first-child
+                background: url("../img/articles/trading.webp") top left/100% auto no-repeat
+
+            article:last-child > div:first-child
+                background: url("../img/articles/nft.webp") top left/100% auto no-repeat
+
+@media screen and (max-width: 420px)
+
+    .get-started
+
+        &__item
+            flex-wrap: wrap
+
+            &-info
+                margin-top: 15px
+
+    .blog
+
+        &__list
+
+            article:nth-child(2) > div:first-child
+                background: url("../img/articles/bitcoin.webp") top left/100% 100% no-repeat
+
+            article:nth-child(3) > div:first-child
+                background: url("../img/articles/banking.webp") top left/100% 100% no-repeat
+
+            article:nth-child(4) > div:first-child
+                background: url("../img/articles/crypto-wallet.webp") top left/100% 100% no-repeat
+
+            article:nth-child(5) > div:first-child
+                background: url("../img/articles/dollars.webp") top left/100% 100% no-repeat
+
+            article:nth-child(6) > div:first-child
+                background: url("../img/articles/trading.webp") top left/100% 100% no-repeat
+
+            article:last-child > div:first-child
+                background: url("../img/articles/nft.webp") top left/100% 100% no-repeat
+
+@media screen and (max-width: 320px)
+
+    .title
+        font-size: 2rem
+
+    .trand
+
+        &__row
+            width: 1000%
+
+    @keyframes ticker
+        0%
+            transform: translate3d(10%, 0, 0)
+
+        100%
+            transform: translate3d(-100%, 0, 0)
